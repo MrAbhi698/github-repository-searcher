@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repository Searcher</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .status {
+            color: #86efac;
+            font-size: 14px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #111827, #1d4ed8);
+            color: white;
+            text-align: center;
+            padding: 85px 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 0 auto 30px;
+            color: #dbeafe;
+            font-size: 17px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #1d4ed8;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #dbeafe;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 55px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 18px rgba(15, 23, 42, 0.05);
+        }
+
+        .method {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .post {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .get {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .endpoint {
+            font-family: monospace;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .tech {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .tech span {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 10px 17px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .documentation {
+            text-align: center;
+            background: #eaf1ff;
+            padding: 40px 20px;
+            border-radius: 14px;
+        }
+
+        .documentation p {
+            color: #64748b;
+            margin: 12px 0 22px;
+        }
+
+        .documentation .btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .documentation .btn:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            background: #111827;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 22px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            .hero {
+                padding: 65px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">GitHub Repository Searcher</div>
+    <div class="status">● Backend Application</div>
+</header>
+
+<section class="hero">
+    <h1>Discover. Search. Store.</h1>
+    <p>
+        A Spring Boot REST API application that searches GitHub repositories,
+        stores repository information in PostgreSQL, and retrieves results
+        using powerful filtering and sorting options.
+    </p>
+    <a class="btn"
+       href="/swagger-ui/index.html"
+       target="_blank">
+        Explore API Documentation →
+    </a>
+</section>
+
+<main class="container">
+
+    <h2 class="section-title">API Endpoints</h2>
+    <p class="section-description">
+        Explore the core functionalities of the application.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <span class="method post">POST</span>
+            <h3>Search GitHub Repositories</h3>
+            <div class="endpoint">/api/github/search</div>
+            <p>
+                Search GitHub repositories by query, programming language
+                and sorting preference. Repository details are saved
+                in the PostgreSQL database.
+            </p>
+        </div>
+
+        <div class="card">
+            <span class="method get">GET</span>
+            <h3>Retrieve Stored Repositories</h3>
+            <div class="endpoint">/api/github/repositories</div>
+            <p>
+                Retrieve saved repositories using language filters,
+                minimum star counts and sorting by stars, forks or
+                last updated date.
+            </p>
+        </div>
+
+    </div>
+
+    <section style="margin-top: 65px;">
+        <h2 class="section-title">Technology Stack</h2>
+        <p class="section-description">
+            Technologies used to build this backend application.
+        </p>
+
+        <div class="tech">
+            <span>Java 17</span>
+            <span>Spring Boot</span>
+            <span>Spring Data JPA</span>
+            <span>PostgreSQL</span>
+            <span>GitHub REST API</span>
+            <span>Swagger / OpenAPI</span>
+            <span>Maven</span>
+            <span>Docker</span>
+        </div>
+    </section>
+
+    <section class="documentation" style="margin-top: 65px;">
+        <h2>Explore the API</h2>
+        <p>
+            View API specifications, inspect request and response
+            structures, and execute endpoints directly using Swagger UI.
+        </p>
+        <a class="btn"
+           href="/swagger-ui/index.html"
+           target="_blank">
+            Open Swagger Documentation →
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    <p>GitHub Repository Searcher | Backend Development Project</p>
+    <p>Built with Java, Spring Boot and PostgreSQL</p>
+</footer>
+
+</body>
+</html>
